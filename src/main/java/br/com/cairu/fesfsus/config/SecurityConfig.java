@@ -17,6 +17,7 @@ public class SecurityConfig {
 
         httpSecurity.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(HttpMethod.POST, "/licitacao/salvar").permitAll()
+                .requestMatchers(HttpMethod.GET, "/licitacao/listar").permitAll()
 
                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
