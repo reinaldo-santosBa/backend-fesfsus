@@ -26,4 +26,10 @@ public class LicitacaoService {
         return ResponseEntity.status(200).body(licitacaos);
     }
 
+
+    public ResponseEntity<Object> deleteById(Long id) {
+        licitacaoRepository.deleteById(id);
+
+        return ResponseEntity.status(201).body("Licitação deletada com sucesso!");
+    }
 }

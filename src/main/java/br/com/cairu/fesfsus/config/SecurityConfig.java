@@ -18,11 +18,12 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(HttpMethod.POST, "/licitacao/salvar").permitAll()
                 .requestMatchers(HttpMethod.GET, "/licitacao/listar").permitAll()
-
+                .requestMatchers(HttpMethod.DELETE, "/licitacao/{id}").permitAll()
                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return httpSecurity.build();
     }
+
 }
