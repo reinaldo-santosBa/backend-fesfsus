@@ -17,24 +17,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Data
-@Table(name = "tb_licitacao")
+@Table(name = "tb_usuario")
 
-@Entity(name = "tb_licitacao")
-public class Licitacao {
+@Entity(name = "tb_usuario")
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
-    private String titulo;
+    private String nome;
 
     @Column(unique = true)
-    private String numeroLicitacao;
+    private String email;
 
-    @Column(length = 1000)
-    private String descricao;
-
-    private String detalhe;
+    private String senha;
 
 }

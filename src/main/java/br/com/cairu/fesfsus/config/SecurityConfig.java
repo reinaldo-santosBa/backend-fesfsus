@@ -16,9 +16,21 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity.authorizeHttpRequests(authorize -> authorize
+
+                // licitacao
                 .requestMatchers(HttpMethod.POST, "/licitacao/salvar").permitAll()
                 .requestMatchers(HttpMethod.GET, "/licitacao/listar").permitAll()
+                .requestMatchers(HttpMethod.GET, "/licitacao/{id}").permitAll()
                 .requestMatchers(HttpMethod.DELETE, "/licitacao/{id}").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/licitacao/{id}").permitAll()
+
+                // usuario
+                .requestMatchers(HttpMethod.POST, "/usuario/salvar").permitAll()
+                .requestMatchers(HttpMethod.GET, "/usuario/listar").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/usuario/{id}").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/usuario/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/usuario/{id}").permitAll()
+
                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
