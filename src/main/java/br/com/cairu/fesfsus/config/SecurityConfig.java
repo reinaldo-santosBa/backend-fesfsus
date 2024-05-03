@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.DELETE, "/usuario/{id}").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/usuario/{id}").permitAll()
                 .requestMatchers(HttpMethod.GET, "/usuario/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/usuario/email/{email}").permitAll()
 
                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())

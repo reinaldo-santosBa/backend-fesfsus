@@ -87,4 +87,11 @@ public class UsuarioController {
         }
     }
 
+    // PESQUISAR POR EMAIL
+    @GetMapping(value = "/email/{email}")
+    public ResponseEntity<Object> listarPorEmail(@PathVariable String email) {
+        return usuarioService.listarPorEmail(email);
+
+    }
+
 }

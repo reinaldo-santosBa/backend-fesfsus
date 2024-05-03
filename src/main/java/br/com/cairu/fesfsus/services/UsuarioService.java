@@ -30,4 +30,9 @@ public class UsuarioService {
         return ResponseEntity.status(200).body(usuarios);
     }
 
+    public ResponseEntity<Object> listarPorEmail(String email) {
+        List<Usuario> usuario = usuarioRepository.findByEmail(email);
+        return ResponseEntity.status(200).body(usuario);
+    }
+
 }
