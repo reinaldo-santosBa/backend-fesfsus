@@ -94,4 +94,11 @@ public class UsuarioController {
 
     }
 
+    // LISTAR POR NOME
+    @GetMapping(value = "/nome/{nome}")
+    public ResponseEntity<Object> listarPorNome(@PathVariable String nome) {
+        return usuarioService.listarPorNome(nome);
+
+    }
+
 }

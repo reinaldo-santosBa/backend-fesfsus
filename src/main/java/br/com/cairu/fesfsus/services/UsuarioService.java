@@ -35,4 +35,9 @@ public class UsuarioService {
         return ResponseEntity.status(200).body(usuario);
     }
 
+    public ResponseEntity<Object> listarPorNome(String nome) {
+        List<Usuario> usuario = usuarioRepository.findByNome(nome);
+        return ResponseEntity.status(200).body(usuario);
+    }
+
 }
