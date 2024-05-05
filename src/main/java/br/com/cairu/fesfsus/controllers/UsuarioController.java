@@ -88,15 +88,15 @@ public class UsuarioController {
     }
 
     // PESQUISAR POR EMAIL
-    @GetMapping(value = "/email/{email}")
-    public ResponseEntity<Object> listarPorEmail(@PathVariable String email) {
+    @PostMapping(value = "/email")
+    public ResponseEntity<Object> listarPorEmail(@RequestBody Usuario email) {
         return usuarioService.listarPorEmail(email);
 
     }
 
     // LISTAR POR NOME
-    @GetMapping(value = "/nome/{nome}")
-    public ResponseEntity<Object> listarPorNome(@PathVariable String nome) {
+    @PostMapping(value = "/nome")
+    public ResponseEntity<Object> listarPorNome(@RequestBody Usuario nome) {
         return usuarioService.listarPorNome(nome);
 
     }

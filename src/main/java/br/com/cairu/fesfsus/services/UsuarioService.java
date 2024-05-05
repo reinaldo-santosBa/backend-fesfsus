@@ -30,14 +30,14 @@ public class UsuarioService {
         return ResponseEntity.status(200).body(usuarios);
     }
 
-    public ResponseEntity<Object> listarPorEmail(String email) {
-        List<Usuario> usuario = usuarioRepository.findByEmail(email);
-        return ResponseEntity.status(200).body(usuario);
+    public ResponseEntity<Object> listarPorEmail(Usuario usuario) {
+        List<Usuario> usuarios = usuarioRepository.findByEmailLike("%" + usuario.getEmail() + "%");
+        return ResponseEntity.status(200).body(usuarios);
     }
 
-    public ResponseEntity<Object> listarPorNome(String nome) {
-        List<Usuario> usuario = usuarioRepository.findByNome(nome);
-        return ResponseEntity.status(200).body(usuario);
+    public ResponseEntity<Object> listarPorNome(Usuario usuario) {
+        List<Usuario> usuarios = usuarioRepository.findByNomeLike("%" + usuario.getNome() + "%");
+        return ResponseEntity.status(200).body(usuarios);
     }
 
 }
