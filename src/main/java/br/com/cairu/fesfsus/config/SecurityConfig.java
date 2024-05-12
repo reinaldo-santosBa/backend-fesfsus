@@ -17,12 +17,12 @@ public class SecurityConfig {
 
         httpSecurity.authorizeHttpRequests(authorize -> authorize
 
-                // licitacao
-                .requestMatchers(HttpMethod.POST, "/licitacao/salvar").permitAll()
-                .requestMatchers(HttpMethod.GET, "/licitacao/listar").permitAll()
-                .requestMatchers(HttpMethod.GET, "/licitacao/{id}").permitAll()
-                .requestMatchers(HttpMethod.DELETE, "/licitacao/{id}").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/licitacao/{id}").permitAll()
+                // legislacao
+                .requestMatchers(HttpMethod.POST, "/legislacao/salvar").permitAll()
+                .requestMatchers(HttpMethod.GET, "/legislacao/listar").permitAll()
+                .requestMatchers(HttpMethod.GET, "/legislacao/{id}").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/legislacao/{id}").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/legislacao/{id}").permitAll()
 
                 // usuario
                 .requestMatchers(HttpMethod.POST, "/usuario/salvar").permitAll()

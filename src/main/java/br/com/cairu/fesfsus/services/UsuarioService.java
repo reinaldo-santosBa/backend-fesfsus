@@ -4,6 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import br.com.cairu.fesfsus.dto.UsuarioResponseDTO;
 import br.com.cairu.fesfsus.models.Usuario;
 import br.com.cairu.fesfsus.repositories.UsuarioRepository;
 
@@ -31,12 +33,12 @@ public class UsuarioService {
     }
 
     public ResponseEntity<Object> listarPorEmail(Usuario usuario) {
-        List<Usuario> usuarios = usuarioRepository.findByEmailLike("%" + usuario.getEmail() + "%");
+        List<UsuarioResponseDTO> usuarios = usuarioRepository.findByEmailLike("%" + usuario.getEmail() + "%");
         return ResponseEntity.status(200).body(usuarios);
     }
 
     public ResponseEntity<Object> listarPorNome(Usuario usuario) {
-        List<Usuario> usuarios = usuarioRepository.findByNomeLike("%" + usuario.getNome() + "%");
+        List<UsuarioResponseDTO> usuarios = usuarioRepository.findByNomeLike("%" + usuario.getNome() + "%");
         return ResponseEntity.status(200).body(usuarios);
     }
 

@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +18,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Data
-@Table(name = "tb_licitacao")
+@Table(name = "tb_legislacao")
 
-@Entity(name = "tb_licitacao")
-public class Licitacao {
+@Entity(name = "tb_legislacao")
+public class Legislacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +31,11 @@ public class Licitacao {
     private String titulo;
 
     @Column(unique = true)
-    private String numeroLicitacao;
+    private String numeroLegislacao;
 
-    @Column(length = 1000)
-    private String descricao;
+    private boolean ativo;
 
+    @Lob
     private String detalhe;
 
 }
