@@ -6,11 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.cairu.fesfsus.models.Legislacao;
 import br.com.cairu.fesfsus.repositories.LegislacaoRepository;
@@ -27,14 +29,18 @@ public class LegislacaoController {
     private LegislacaoRepository legislacaoRepository;
 
     @PostMapping("/salvar")
-    public ResponseEntity<Object> salvar(@RequestBody Legislacao legislacao) {
+    public ResponseEntity<Object> salvar(@RequestPart("data") Legislacao legislacao,
+            @RequestPart("detalhe") String detalhe) {
+        String titulo = legislacao.getTitulo();
+        String numeroLegislacao = legislacao.getNumeroLegislacao();
+        legislacao.setDetalhe(detalhe);
 
-        if (legislacaoRepository.existsByNumeroLegislacao(legislacao.getNumeroLegislacao())) {
-            return ResponseEntity.badRequest().body("Numero da legislação já existe!");
+        if (legislacaoRepository.existsByNumeroLegislacao(numeroLegislacao)) {
+            return ResponseEntity.badRequest().body("Número da legislação já existe!");
         }
 
-        if (legislacaoRepository.existsByTitulo(legislacao.getTitulo())) {
-            return ResponseEntity.badRequest().body("Titulo da legislação ja existe!");
+        if (legislacaoRepository.existsByTitulo(titulo)) {
+            return ResponseEntity.badRequest().body("Título da legislação já existe!");
         }
 
         return legislacaoService.salvar(legislacao);

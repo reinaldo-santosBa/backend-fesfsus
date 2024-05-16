@@ -10,4 +10,6 @@ public interface LegislacaoRepository extends JpaRepository<Legislacao, Long> {
 
     boolean existsByTitulo(String titulo);
 
+    boolean existsByDetalhe(String detalhe);
+
 }

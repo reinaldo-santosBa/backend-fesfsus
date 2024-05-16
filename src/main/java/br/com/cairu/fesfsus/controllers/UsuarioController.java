@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.cairu.fesfsus.dto.LoginRequestDTO;
 import br.com.cairu.fesfsus.models.Usuario;
 import br.com.cairu.fesfsus.repositories.UsuarioRepository;
 import br.com.cairu.fesfsus.services.UsuarioService;
@@ -99,6 +101,11 @@ public class UsuarioController {
     public ResponseEntity<Object> listarPorNome(@RequestBody Usuario nome) {
         return usuarioService.listarPorNome(nome);
 
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestBody LoginRequestDTO user) {
+        return usuarioService.login(user);
     }
 
 }
