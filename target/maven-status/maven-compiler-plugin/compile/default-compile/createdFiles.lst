@@ -1,0 +1,16 @@
+br/com/cairu/fesfsus/controllers/LegislacaoController.class
+br/com/cairu/fesfsus/services/AuthorizationService.class
+br/com/cairu/fesfsus/controllers/UsuarioController.class
+br/com/cairu/fesfsus/dto/LoginResponseDTO.class
+br/com/cairu/fesfsus/config/TokenService.class
+br/com/cairu/fesfsus/models/Legislacao.class
+br/com/cairu/fesfsus/dto/UsuarioResponseDTO.class
+br/com/cairu/fesfsus/services/UsuarioService.class
+br/com/cairu/fesfsus/repositories/UsuarioRepository.class
+br/com/cairu/fesfsus/repositories/LegislacaoRepository.class
+br/com/cairu/fesfsus/services/LegislacaoService.class
+br/com/cairu/fesfsus/config/SecurityFilter.class
+br/com/cairu/fesfsus/config/SecurityConfig.class
+br/com/cairu/fesfsus/models/Usuario.class
+br/com/cairu/fesfsus/FesfsusApplication.class
+br/com/cairu/fesfsus/dto/LoginRequestDTO.class
